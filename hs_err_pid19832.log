@@ -23,7 +23,7 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: --add-modules=ALL-DEFAULT jdk.compiler/com.sun.tools.javac.launcher.Main src/procesolento/procesoLento.java
+Command Line: --add-modules=ALL-DEFAULT jdk.compiler/com.sun.tools.javac.launcher.Main src/ejercicio2/procesoLento.java
 
 Host: Intel(R) Core(TM) i5-10400 CPU @ 2.90GHz, 12 cores, 7G,  Windows 10 , 64 bit Build 22000 (10.0.22000.708)
 Time: Thu Sep 29 11:13:56 2022 Hora de verano romance elapsed time: 0.009049 seconds (0d 0h 0m 0s)
@@ -131,7 +131,7 @@ symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Pr
 
 VM Arguments:
 jvm_args: --add-modules=ALL-DEFAULT 
-java_command: jdk.compiler/com.sun.tools.javac.launcher.Main src/procesolento/procesoLento.java
+java_command: jdk.compiler/com.sun.tools.javac.launcher.Main src/ejercicio2/procesoLento.java
 java_class_path (initial): .
 Launcher Type: SUN_STANDARD
 

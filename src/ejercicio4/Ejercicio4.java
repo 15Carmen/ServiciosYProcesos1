@@ -1,12 +1,17 @@
-package procesolento;
+package ejercicio4;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class LanzarProceso {
+public class Ejercicio4 {
     public static void main(String[] args) {
-        String[] comando = {"java", "src/procesolento/ProcesoLento.java"};
+        String[] comando = {"java", "src/ejercicio2/ProcesoLento.java"};
         ProcessBuilder pb = new ProcessBuilder(comando);
-        pb.inheritIO();
+        File fichero = new File("C:\\Users\\cmartin\\IntelliJ\\SistemasYProcesos1\\src\\ejercicio4\\salidaProcesoLento.txt");
+        pb.redirectOutput(fichero); //redirijo la salida del proceso a un fichero de texto
+        //pb.inheritIO();
 
         try {
             Process p = pb.start();
@@ -15,14 +20,9 @@ public class LanzarProceso {
                 Thread.sleep(3000); //espera 3 segundos
             }
             System.out.println("El proceso ha terminado");
-        } catch (IOException e) {
-           e.printStackTrace();
-        } catch (InterruptedException e) {
+
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
-
-
-
-
 }

@@ -1,11 +1,8 @@
-package lanzaproceso;
+package ejemplo;
 
-import java.io.File;
 import java.util.Arrays;
 import java.io.IOException;
-import java.util.Map;
-
-public class LanzaProceso {
+public class RunTime {
 
     public static void main(String[] args) {
 
@@ -17,21 +14,20 @@ public class LanzaProceso {
         }
 
         // Le pasamos los argumentos al ProcessBuilder
-        ProcessBuilder pb = new ProcessBuilder(args);
+        /*ProcessBuilder pb = new ProcessBuilder(args);
         File directorio = new File("C:\\Users\\cmartin\\IntelliJ\\SistemasYProcesos1\\src\\lanzaproceso");
-        pb.directory(directorio); //metodo del ProcessBuilder
+        pb.directory(directorio); //metodo del ProcessBuilder*/
+        Runtime r = Runtime.getRuntime();
 
         /**
          *  Con esta llamada hacemos que el proceso herede la entrada
          *  y salida estándares del proceso padre
-        */
-        pb.inheritIO();
-
-        Map<String,String> entorno=pb.environment();
+         */
+        //pb.inheritIO();
 
         try {
             // Arrancamos el proceso
-            Process p = pb.start();
+            Process p =r.exec(args);
 
             /* Se espera a que termine la ejecución del proceso hijo y se obtiene el código de retorno.
              * Si durante la espera se interrumple la ejecución del programa, se lanzará una excepción
@@ -58,3 +54,4 @@ public class LanzaProceso {
 
     }
 }
+
