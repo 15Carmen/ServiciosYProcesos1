@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LanzaProcesos {
+public class LanzaProcesosTuberia {
     public static void main(String[] args) {
         ProcessBuilder pb1=new ProcessBuilder("java", "src/ejercicio7/Clase1.java");
         ProcessBuilder pb2=new ProcessBuilder("java", "src/ejercicio7/Clase2.java");
