@@ -1,23 +1,27 @@
 package ejercicio7;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Clase3 {
     public static void main(String[] args) {
-        ProcessBuilder pb1=new ProcessBuilder("java", "src/ejercicio7/Clase1.java");
-        ProcessBuilder pb2=new ProcessBuilder("java", "src/ejercicio7/Clase2.java");
+        Scanner sc = new Scanner(System.in);
 
-        List<ProcessBuilder> lpb = new ArrayList<ProcessBuilder>();
-        lpb.add(pb1);
-        lpb.add(pb2);
-        pb2.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+        while (sc.hasNextLine()) {
+            String ip = sc.nextLine();
+            String[] ArrayIp = ip.split("\\.");
+            int primerosNumeros = Integer.parseInt(ArrayIp[0]);
 
-        try{
-            List<Process> lProcess = ProcessBuilder.startPipeline(lpb);
-        }catch (IOException e){
-            e.printStackTrace();
+            if (primerosNumeros >= 0 && primerosNumeros<=127) {
+                System.out.println(ip + " Clase A");
+            } else if (primerosNumeros>=128 && primerosNumeros<=191) {
+                System.out.println(ip + " Clase B");
+            } else if (primerosNumeros>=192 && primerosNumeros<=223) {
+                System.out.println(ip + " Clase C");
+            }
         }
     }
 }

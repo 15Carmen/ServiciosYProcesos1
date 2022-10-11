@@ -6,17 +6,19 @@ import java.util.Scanner;
 
 public class Clase2 {
     public static void main(String[] args) {
-        String[] comando = {"java", "src/ejercicio7/Clase1.java"};
-        ProcessBuilder pb = new ProcessBuilder(comando);
 
-        pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-        try {
-            Process p = pb.start();
-            p.waitFor();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        Scanner sc = new Scanner(System.in);
+
+        for (int i = 0; i<10 ; i++){
+            String ip= sc.nextLine();
+            String[] ArrayIp =ip.split("\\.");
+            int primerosNumeros=Integer.parseInt(ArrayIp[0]);
+            if (primerosNumeros<=223){
+                System.out.println(ip);
+            }
         }
+
+        sc.close();
+
     }
 }
