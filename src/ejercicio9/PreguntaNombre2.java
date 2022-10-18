@@ -10,6 +10,7 @@ public class PreguntaNombre2 {
     getInputStream() e imprimirlo por pantalla.
      */
     public static void main(String[] args) {
+
         Runtime r = Runtime.getRuntime();
         String[] comando = {"java", "src/ejercicio5/PreguntaNombre.java"};
 
@@ -50,7 +51,6 @@ public class PreguntaNombre2 {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
 
