@@ -14,13 +14,41 @@ public class PreguntaNombre2 {
         String[] comando = {"java", "src/ejercicio5/PreguntaNombre.java"};
 
         try {
-
             Process p = r.exec(comando);
+            FileReader fr = new FileReader("src/ejercicio5/entrada.txt");
+            BufferedReader br = new BufferedReader(fr);
+
             OutputStream os = p.getOutputStream();
             OutputStreamWriter osw = new OutputStreamWriter(os);
+            BufferedWriter bw = new BufferedWriter(osw);
 
+            String line = br.readLine();
+
+            while (line!=null){ //mientras el proceso funcione
+                bw.write(line);
+                bw.newLine();
+                line = br.readLine();
+            }
+
+            bw.close();
+            p.waitFor();
+            InputStream is = p.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br2 = new BufferedReader(isr);
+
+            String linea = br2.readLine();
+            while (linea != null){
+                System.out.println(linea);
+                linea= br2.readLine();
+            }
+
+            br.close();
+            os.close();
+            osw.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
 
     }
